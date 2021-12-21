@@ -1,0 +1,16 @@
+---
+toc-title: "Содержание"
+toc: true # Table of contents
+toc_depth: 2
+lof: true # List of figures
+lot: true # List of tables
+fontsize: 13pt
+linestretch: 1.5
+report: true
+has-frontmatter: false
+papersize: a4
+disable-chapterheadstartvskip: true
+centering-section: true
+oneside: true
+disable-header-and-footer: true
+---
