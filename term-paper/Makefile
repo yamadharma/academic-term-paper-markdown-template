@@ -78,5 +78,5 @@ main.tex: main.md text/*.md
 	pandoc -s $(CONFIG_YAML) title/*.yaml "$<" $(FILTERS) $(PDF_ENGINE) $(PDF_OPTIONS) $(PDF_FORMAT_OPTIONS) $(PDF_BIB_OPTIONS) $(TEMPLATE_TEX) $(RESOURCE_PATH) -o "$@"
 
 main.pdf: main.tex
-	/usr/local/bin/latexmk -pdflatex="lualatex --shell-escape %O %S" -pdf -bibtex "$<"
+	latexmk -pdflatex="lualatex --shell-escape %O %S" -pdf -bibtex "$<"
 
