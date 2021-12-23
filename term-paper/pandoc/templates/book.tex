@@ -183,15 +183,73 @@ $if(outertheme)$
 $endif$
 $endif$
 % koma-script tuning
-$if(disable-chapterheadstartvskip)$
-\renewcommand{\chapterheadstartvskip}{}%
-$endif$
 $if(centering-section)$
 \renewcommand\raggedsection{\centering}
 $endif$
 $if(oneside)$
 \KOMAoptions{twoside=false}
 $endif$
+$if(headings)$
+\KOMAoptions{headings=standardclasses}
+$endif$
+$if(headings-size)$
+\KOMAoptions{headings=$headings-size$}
+$endif$
+$if(chapterprefix)$
+\KOMAoptions{chapterprefix=true}
+$else$
+\KOMAoptions{chapterprefix=false}
+$endif$
+$if(disable-headvskip)$
+\renewcommand*{\chapterheadstartvskip}{}
+% \renewcommand*{\chapterheadendvskip}{\vspace*{2\baselineskip}}
+% \renewcommand{\chapterheadstartvskip}{\vspace*{10\baselineskip}}%
+\RedeclareSectionCommand[beforeskip=0pt]{chapter}
+% \RedeclareSectionCommand[%
+% runin=false,
+% afterindent=false,
+% beforeskip=0pt,
+% afterskip=0pt,
+% afterskip=2\baselineskip,
+% innerskip=0pt,
+% ]{chapter}
+% \RedeclareSectionCommand[%
+% % runin=false,
+% afterindent=false,
+% beforeskip=\baselineskip,
+% afterskip=.5\baselineskip]{section}
+% \RedeclareSectionCommand[%
+% % runin=false,
+% afterindent=false,
+% beforeskip=.75\baselineskip,
+% afterskip=.5\baselineskip]{subsection}
+% \RedeclareSectionCommand[%
+% % runin=false,
+% afterindent=false,
+% beforeskip=.5\baselineskip,
+% afterskip=.25\baselineskip]{subsubsection}
+% \RedeclareSectionCommand[%
+% runin=true,
+% % afterindent=false,
+% beforeskip=.5\baselineskip,
+% afterskip=1em]{paragraph}
+% \RedeclareSectionCommand[%
+% runin=true,
+% % afterindent=false,
+% beforeskip=.5\baselineskip,
+% afterskip=1em]{subparagraph}
+$endif$
+% \setcaptionalignment[figure]{C}
+% \setcaptionalignment[table]{R}
+% \renewcommand*{\figureformat}{\figurename~\thefigure\autodot}
+% \renewcommand*{\tableformat}{\tablename~\thetable\autodot}
+\usepackage{enumitem}
+\setlist{nosep}
+\renewcommand{\labelitemi}{\bfseries\textemdash}                                                                                                                                                                                               
+\renewcommand{\labelitemii}{\bfseries\textemdash}                                                                                                                                                                                              
+\renewcommand{\labelitemiii}{\bfseries\textemdash}                                                                                                                                                                                             
+\renewcommand{\labelitemiv}{\bfseries\textemdash}
+%%
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \IfFileExists{microtype.sty}{% use microtype if available
@@ -273,6 +331,22 @@ $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $endif$
+
+% % \AfterCalculatingTypearea{
+%   \newgeometry{%
+%   left=30mm,
+%   right=15mm,
+%   top=20mm,
+%   bottom=20mm,
+%   % bindingoffset=10mm,
+%   % includefoot,
+%   % foot=\baselineskip,
+%   % showframe
+% }
+% % }
+% % \recalctypearea
+
+
 $if(logo)$
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
@@ -566,11 +640,21 @@ $endif$
 %
 % captions
 %
-\definecolor{caption-color}{HTML}{777777}
+% \definecolor{caption-color}{HTML}{777777}
 $if(beamer)$
 $else$
-\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, labelsep=space, justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
-\setcapindent{0em}
+% \usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, labelsep=space, justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
+\usepackage[font={stretch=1.2}, position=top, skip=4mm, labelfont=bf,
+singlelinecheck=false, labelsep=space,
+justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
+\captionsetup{font={small}}
+\captionsetup{textfont={bf},labelfont={bf}}
+% \DeclareCaptionFormat{tableRight}{\hfill#1\newline#2#3\par}
+\DeclareCaptionFormat{gost1.5}{\hfill#1\newline#2#3\par}
+\captionsetup[figure]{labelsep=space,position=bottom,justification=centering}
+% \captionsetup[table]{format=tableRight,labelsep=none,position=top}
+\captionsetup[table]{format=gost1.5,labelsep=none,position=top,justification=centering}
+% \setcapindent{0em}
 $endif$
 
 %
@@ -1028,7 +1112,7 @@ $if(beamer)$
   \printbibliography[heading=none]
 \end{frame}
 $else$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+\printbibliography$if(biblio-title)$[title=$biblio-title$,heading=bibintoc]$else$[heading=bibintoc]$endif$
 $endif$
 
 $endif$

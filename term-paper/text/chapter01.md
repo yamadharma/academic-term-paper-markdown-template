@@ -57,4 +57,4 @@ Unix.
 | `/tmp`       | Временные файлы                                                                                                            |
 | `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
 
-Более подробно об используемых утилитах см. в [@gnu-doc:bash;@newham:2005:bash;@zarrelli:2017:bash;@robbins:2013:bash;@tannenbaum:arch-pc:ru;@tannenbaum:modern-os:ru].
+Более подробно об используемых утилитах см. в [@gnu-doc_bash;@newham_2005_bash;@zarrelli_2017_bash;@robbins_2013_bash;@tannenbaum_arch-pc_ru;@tannenbaum_modern-os_ru].

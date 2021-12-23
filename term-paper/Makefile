@@ -55,8 +55,7 @@ PDF_BIB_OPTIONS = --biblatex
 %.pdf: %.docx
 	-unoconv "$<" "$@"
 
-all: $(FILES)
-	@echo $(FILES)
+all: main.pdf
 
 clean:
 	-@latexmk -C
@@ -64,7 +63,7 @@ clean:
 	-@rm $(TMPFILES_LOCAL)
 
 cleanall: clean
-	-@rm main.tex
+	-@rm *.tex
 	-@rm -rf out $(BUILDDIR) $(TMPDIRS_LOCAL)
 
 distclean: cleanall
@@ -73,9 +72,13 @@ distclean: cleanall
 
 ## 2 step compilation: md -> tex, tex -> pdf
 
-main.tex: main.md text/*.md
+main.tex: main.md text/*.md appendix.tex
 	-$(EXPORT_LIST) \
-	pandoc -s $(CONFIG_YAML) title/*.yaml "$<" $(FILTERS) $(PDF_ENGINE) $(PDF_OPTIONS) $(PDF_FORMAT_OPTIONS) $(PDF_BIB_OPTIONS) $(TEMPLATE_TEX) $(RESOURCE_PATH) -o "$@"
+	pandoc -s $(CONFIG_YAML) title/*.yaml "$<" $(FILTERS) $(PDF_ENGINE) $(PDF_OPTIONS) $(PDF_FORMAT_OPTIONS) $(PDF_BIB_OPTIONS) $(TEMPLATE_TEX) $(RESOURCE_PATH) -A appendix.tex -o "$@"
+
+appendix.tex: appendix.md text/*.md
+	-$(EXPORT_LIST) \
+	pandoc "$<" $(FILTERS) $(PDF_OPTIONS) $(PDF_FORMAT_OPTIONS) $(PDF_BIB_OPTIONS) $(RESOURCE_PATH) -o "$@"
 
 main.pdf: main.tex
 	latexmk -pdflatex="lualatex --shell-escape %O %S" -pdf -bibtex "$<"
