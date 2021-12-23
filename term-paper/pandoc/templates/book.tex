@@ -183,39 +183,6 @@ $if(outertheme)$
 $endif$
 $endif$
 % koma-script tuning
-$if(disable-headvskip)$
-\renewcommand{\chapterheadstartvskip}{\vspace{-.2\baselineskip}}%
-\RedeclareSectionCommand[%
-% runin=false,
-afterindent=false,
-beforeskip=0pt,
-afterskip=2\baselineskip]{chapter}
-\RedeclareSectionCommand[%
-% runin=false,
-afterindent=false,
-beforeskip=\baselineskip,
-afterskip=.5\baselineskip]{section}
-\RedeclareSectionCommand[%
-% runin=false,
-afterindent=false,
-beforeskip=.75\baselineskip,
-afterskip=.5\baselineskip]{subsection}
-\RedeclareSectionCommand[%
-% runin=false,
-afterindent=false,
-beforeskip=.5\baselineskip,
-afterskip=.25\baselineskip]{subsubsection}
-\RedeclareSectionCommand[%
-runin=true,
-% afterindent=false,
-beforeskip=.5\baselineskip,
-afterskip=1em]{paragraph}
-\RedeclareSectionCommand[%
-runin=true,
-% afterindent=false,
-beforeskip=.5\baselineskip,
-afterskip=1em]{subparagraph}
-$endif$
 $if(centering-section)$
 \renewcommand\raggedsection{\centering}
 $endif$
@@ -232,6 +199,45 @@ $if(chapterprefix)$
 \KOMAoptions{chapterprefix=true}
 $else$
 \KOMAoptions{chapterprefix=false}
+$endif$
+$if(disable-headvskip)$
+\renewcommand*{\chapterheadstartvskip}{}
+% \renewcommand*{\chapterheadendvskip}{\vspace*{2\baselineskip}}
+% \renewcommand{\chapterheadstartvskip}{\vspace*{10\baselineskip}}%
+\RedeclareSectionCommand[beforeskip=0pt]{chapter}
+% \RedeclareSectionCommand[%
+% runin=false,
+% afterindent=false,
+% beforeskip=0pt,
+% afterskip=0pt,
+% afterskip=2\baselineskip,
+% innerskip=0pt,
+% ]{chapter}
+% \RedeclareSectionCommand[%
+% % runin=false,
+% afterindent=false,
+% beforeskip=\baselineskip,
+% afterskip=.5\baselineskip]{section}
+% \RedeclareSectionCommand[%
+% % runin=false,
+% afterindent=false,
+% beforeskip=.75\baselineskip,
+% afterskip=.5\baselineskip]{subsection}
+% \RedeclareSectionCommand[%
+% % runin=false,
+% afterindent=false,
+% beforeskip=.5\baselineskip,
+% afterskip=.25\baselineskip]{subsubsection}
+% \RedeclareSectionCommand[%
+% runin=true,
+% % afterindent=false,
+% beforeskip=.5\baselineskip,
+% afterskip=1em]{paragraph}
+% \RedeclareSectionCommand[%
+% runin=true,
+% % afterindent=false,
+% beforeskip=.5\baselineskip,
+% afterskip=1em]{subparagraph}
 $endif$
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -314,6 +320,22 @@ $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $endif$
+
+% % \AfterCalculatingTypearea{
+%   \newgeometry{%
+%   left=30mm,
+%   right=15mm,
+%   top=20mm,
+%   bottom=20mm,
+%   % bindingoffset=10mm,
+%   % includefoot,
+%   % foot=\baselineskip,
+%   % showframe
+% }
+% % }
+% % \recalctypearea
+
+
 $if(logo)$
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
