@@ -184,13 +184,29 @@ $endif$
 $endif$
 % koma-script tuning
 $if(disable-chapterheadstartvskip)$
-\renewcommand{\chapterheadstartvskip}{}%
+\renewcommand{\chapterheadstartvskip}{\vspace{-.2\baselineskip}}%
+\RedeclareSectionCommand[%
+% runin=false,
+afterindent=false,
+beforeskip=0pt,
+afterskip=2\baselineskip]{chapter}
 $endif$
 $if(centering-section)$
 \renewcommand\raggedsection{\centering}
 $endif$
 $if(oneside)$
 \KOMAoptions{twoside=false}
+$endif$
+$if(headings)$
+\KOMAoptions{headings=standardclasses}
+$endif$
+$if(headings-size)$
+\KOMAoptions{headings=$headings-size$}
+$endif$
+$if(chapterprefix)$
+\KOMAoptions{chapterprefix=true}
+$else$
+\KOMAoptions{chapterprefix=false}
 $endif$
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
