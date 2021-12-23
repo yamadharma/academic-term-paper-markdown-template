@@ -22,6 +22,5 @@ geometry:
   - bottom=20mm
   - nohead
   - includefoot=true
-  - showframe
 disable-header-and-footer: true
 ---
