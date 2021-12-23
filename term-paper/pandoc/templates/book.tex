@@ -243,6 +243,13 @@ $endif$
 % \setcaptionalignment[table]{R}
 % \renewcommand*{\figureformat}{\figurename~\thefigure\autodot}
 % \renewcommand*{\tableformat}{\tablename~\thetable\autodot}
+\usepackage{enumitem}
+\setlist{nosep}
+\renewcommand{\labelitemi}{\bfseries\textemdash}                                                                                                                                                                                               
+\renewcommand{\labelitemii}{\bfseries\textemdash}                                                                                                                                                                                              
+\renewcommand{\labelitemiii}{\bfseries\textemdash}                                                                                                                                                                                             
+\renewcommand{\labelitemiv}{\bfseries\textemdash}
+%%
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \IfFileExists{microtype.sty}{% use microtype if available
