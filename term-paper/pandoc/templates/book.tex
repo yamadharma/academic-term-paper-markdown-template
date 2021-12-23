@@ -183,13 +183,38 @@ $if(outertheme)$
 $endif$
 $endif$
 % koma-script tuning
-$if(disable-chapterheadstartvskip)$
+$if(disable-headvskip)$
 \renewcommand{\chapterheadstartvskip}{\vspace{-.2\baselineskip}}%
 \RedeclareSectionCommand[%
 % runin=false,
 afterindent=false,
 beforeskip=0pt,
 afterskip=2\baselineskip]{chapter}
+\RedeclareSectionCommand[%
+% runin=false,
+afterindent=false,
+beforeskip=\baselineskip,
+afterskip=.5\baselineskip]{section}
+\RedeclareSectionCommand[%
+% runin=false,
+afterindent=false,
+beforeskip=.75\baselineskip,
+afterskip=.5\baselineskip]{subsection}
+\RedeclareSectionCommand[%
+% runin=false,
+afterindent=false,
+beforeskip=.5\baselineskip,
+afterskip=.25\baselineskip]{subsubsection}
+\RedeclareSectionCommand[%
+runin=true,
+% afterindent=false,
+beforeskip=.5\baselineskip,
+afterskip=1em]{paragraph}
+\RedeclareSectionCommand[%
+runin=true,
+% afterindent=false,
+beforeskip=.5\baselineskip,
+afterskip=1em]{subparagraph}
 $endif$
 $if(centering-section)$
 \renewcommand\raggedsection{\centering}

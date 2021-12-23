@@ -9,7 +9,7 @@ linestretch: 1.5
 report: true
 has-frontmatter: false
 papersize: a4
-disable-chapterheadstartvskip: true
+disable-headvskip: true
 chapterprefix: false
 headings: "standardclasses"
 headings-size: "small" # big | normal | small
