@@ -23,4 +23,5 @@ geometry:
   - nohead
   - includefoot=true
 disable-header-and-footer: true
+biblatex: true
 ---

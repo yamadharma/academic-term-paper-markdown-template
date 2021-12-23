@@ -1112,7 +1112,7 @@ $if(beamer)$
   \printbibliography[heading=none]
 \end{frame}
 $else$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+\printbibliography$if(biblio-title)$[title=$biblio-title$,heading=bibintoc]$else$[heading=bibintoc]$endif$
 $endif$
 
 $endif$
