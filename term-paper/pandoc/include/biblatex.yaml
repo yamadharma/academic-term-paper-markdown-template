@@ -6,6 +6,6 @@ biblatexoptions:
   - backend=biber
   - hyperref=auto
   - language=auto
-  - autolang=other*
+  - langhook=extras
   - citestyle=gost-numeric
 ---
