@@ -31,8 +31,11 @@ sudo dpkg -i pandoc-<version>-amd64.deb
 ## Фильтры для `pandoc`
 
 - `pip3 install -U pandoc-mustache --user`
-- `pip3 install -U pandoc-include --user`
 - `pip3 install -U pantable --user`
+
+### Дополнительные фильтры, которые Вы можете использовать
+
+- `pip3 install -U pandoc-include --user`
 
 
 <!--
