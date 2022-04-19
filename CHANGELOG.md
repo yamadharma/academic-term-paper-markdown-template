@@ -1,3 +1,17 @@
+## [1.1.1](https://github.com/yamadharma/academic-term-paper-markdown-template/compare/v1.1.0...v1.1.1) (2022-04-19)
+
+
+### Bug Fixes
+
+* **biblatex:** fix call biblatex for polyglossia from TeXlive 2022 ([9d0926c](https://github.com/yamadharma/academic-term-paper-markdown-template/commit/9d0926c533ea14b0356ab7bc6ecf601ba1a8d837))
+
+
+### Features
+
+* **pandoc:** switch to preprocess.lua filter for including text ([e1304d5](https://github.com/yamadharma/academic-term-paper-markdown-template/commit/e1304d51cb504cdd5f566d8bce8af4b51f08579c))
+
+
+
 # [1.1.0](https://github.com/yamadharma/academic-term-paper-markdown-template/compare/v1.0.0...v1.1.0) (2021-12-23)
 
 
