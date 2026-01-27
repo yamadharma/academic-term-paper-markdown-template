@@ -1,0 +1,158 @@
+\makeatletter
+
+%\AtEndOfClass{%
+%  \RequirePackage{mdwtab}
+
+%  \renewcommand{\maketitle}{%
+\begin{titlepage}%
+  {
+    % \ssp
+    % \begin{alwayssingle}
+    % \let\footnotesize\small
+    % \let\footnoterule\relax
+    % Хак для 14pt кегля
+    \small
+    \thispagestyle{empty}
+    \setcounter{page}{1}
+    \null\vfil
+    \begin{center}
+      {\small \bfseries \MakeUppercase{\PHDministry} \par}
+      \smallskip
+      {\bfseries \MakeUppercase{\PHDinstitute} \par}
+      \smallskip
+      % \hrule
+      \smallskip
+      %% Факультет
+      {\bfseries {\PHDfaculty} \par}
+      %% Кафедра
+      {\bfseries {\PHDchair} \par}
+      %{{{ Специальность
+
+      % \ifx\@empty\PHDfield
+      % \else%
+      % \bigskip%
+      % {\PHDfield} \par
+      % \fi
+
+      %}}}
+    \end{center}
+
+    \bigskip
+    \bigskip
+
+    %% Approved stamp
+    % \ifthenelse{\boolean{approvedStampNeeded}}{%
+    %   \approvedStamp
+    % }{%
+    %   \vspace{2cm}
+    % } % END \ifthenelse{\boolean{approvedStampNeeded}}
+
+    \vspace{\fill}
+
+    \begin{center}
+
+      {\textbf{\PHDthesistype}} \par
+      \smallskip
+
+      % По дисциплине (для реферата)
+      \ifx\@empty\PHDdiscipline
+      \else
+      \medskip%
+      \PHDdisciplineDescr{}
+      <<\PHDdiscipline>>
+      \bigskip
+      \fi
+
+      \ifx\@empty\PHDthesisSubtype
+      \else
+      \smallskip
+      \PHDthesisSubtype
+      \smallskip
+      \fi
+    \end{center}
+
+    % \vspace{6ex}
+
+    % Специальность
+    \begin{center}
+      \ifx\@empty\PHDfield
+      \else%
+      {\PHDfieldDescr}
+      {\PHDfield} \par
+      \fi
+    \end{center}
+    % Программа
+    \begin{center}
+      \ifx\@empty\PHDprogram
+      \else%
+      \smallskip
+      {\PHDprogramDescr}
+      {\PHDprogram} \par
+      \fi
+    \end{center}
+
+    % Название
+    \begin{center}
+      \ifx\@empty\PHDtitle
+      \else
+      \noindent
+      {\PHDtitleDescr}\par
+      {\bfseries {\PHDtitle} \par}
+      \medskip
+      \fi
+    \end{center}
+
+    % \begin{center}
+    %   \ifx\@empty\PHDstudentdegree
+    %   \else%
+    %   \bigskip%
+    %   \PHDstudentdegreeDescr: \PHDstudentdegree \par
+    %   \fi
+
+    % \end{center}
+
+    \begin{center}
+      \ifx\@empty\PHDdegree
+      \else
+      {\PHDdegreeDescr}
+      {\PHDdegree}
+      \fi
+    \end{center}
+
+    % \vfill
+
+    \bigskip%
+    \authorTable
+
+    % Нужна ли таблица БРС
+    % \ifthenelse{\boolean{brsTableNeeded}}{%
+    %   \bigskip
+    %   \brsTable
+    %   \bigskip
+    % }{} %% END \ifthenelse{\boolean{brsTableNeeded}}
+
+    \begin{center}
+      \vspace*{\fill}
+      \bfseries
+      % Город
+      {\PHDdegreecity}
+      \\
+      {\PHDdegreeyear}
+    \end{center}
+
+    % \end{alwayssingle}%
+  }
+\end{titlepage}%
+
+%    \setcounter{footnote}{0}
+%    \clearpage
+%    \setcounter{page}{2}
+%  }
+%} % END of \def\maketitle
+
+\makeatother
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End:

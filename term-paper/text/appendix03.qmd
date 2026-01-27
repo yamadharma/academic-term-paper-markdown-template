@@ -1,0 +1,11 @@
+# Код программного комплекса расчёта линз
+
+## Файл для сборки программного комплекса
+
+``` {.make include="lst/Makefile" .numberLines xleftmargin=1em,linenos,showtabs}
+```
+
+## Расчёт линз в полярных координатах
+
+``` {.julia include="lst/polar.jl"  .numberLines xleftmargin=1em,linenos}
+```

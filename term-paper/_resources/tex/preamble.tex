@@ -1,0 +1,35 @@
+\usepackage{indentfirst}
+% \usepackage{float}
+% \floatplacement{figure}{H}
+\IfFileExists{plex-otf.sty}{
+  %% Full TeXlive
+  \usepackage[math,RM={Scale=0.94},SS={Scale=0.94},SScon={Scale=0.94},TT={Scale=MatchLowercase,FakeStretch=0.9},DefaultFeatures={Ligatures=Common}]{plex-otf}
+}{
+  %% TinyTeX
+  \usepackage{libertine}
+}
+
+%%% При использовании кода на Julia
+\usepackage[Scale=MatchUppercase]{juliamono}
+
+%%% Расширенная математика
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+
+\usepackage{mathtools}
+\mathtoolsset{
+  showonlyrefs=true,
+  mathic=true,
+}
+
+\allowdisplaybreaks
+
+%%%% Calligraphic fonts for physicists
+\usepackage{mathrsfs}
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End:

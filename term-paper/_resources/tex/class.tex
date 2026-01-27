@@ -1,0 +1,112 @@
+\RequirePackage{scrhack}
+\RequirePackage{geometry}
+
+% \geometry{includehead}
+\geometry{includefoot}
+\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+\geometry{bindingoffset=0mm}
+\geometry{marginparwidth=0dd,marginparsep=0dd}
+\geometry{heightrounded}
+
+%%% Titles
+
+\providecommand{\DivFontShape}{\bfseries}
+\providecommand{\DivFontSize}{}
+\providecommand{\DivPosition}{}
+%%
+\providecommand{\partFontShape}{\DivFontShape}
+\providecommand{\partFontSize}{\huge}
+\providecommand{\partPosition}{}
+%%
+\providecommand{\chapterFontShape}{\DivFontShape}
+\providecommand{\chapterFontSize}{\Large}
+\providecommand{\chapterPosition}{}
+%%
+\providecommand{\sectionFontShape}{\DivFontShape}
+\providecommand{\sectionFontSize}{\large}
+\providecommand{\sectionPosition}{\center}
+%%
+\providecommand{\subsectionFontShape}{\DivFontShape}
+\providecommand{\subsectionFontSize}{\large}
+\providecommand{\subsectionPosition}{\center}
+%%
+\providecommand{\subsubsectionFontShape}{\DivFontShape}
+\providecommand{\subsubsectionFontSize}{\normalsize}
+\providecommand{\subsubsectionPosition}{\center}
+%%
+\providecommand{\paragraphFontShape}{\DivFontShape}
+\providecommand{\paragraphFontSize}{\normalsize}
+\providecommand{\paragraphPosition}{}
+%%
+\providecommand{\subparagraphFontShape}{\DivFontShape}
+\providecommand{\subparagraphFontSize}{\normalsize}
+\providecommand{\subparagraphPosition}{}
+%%
+\providecommand{\contentsnameFontShape}{\DivFontShape}
+\providecommand{\contentsnameFontSize}{\Large}
+\providecommand{\contentsnamePosition}{\flushleft}
+
+\KOMAoptions{toc=chapterentrydotfill}
+\addtokomafont{chapterentrypagenumber}{\normalfont\chapterFontShape}
+
+% \RequirePackage{tocloft}
+\RequirePackage[titletoc]{appendix}
+
+% \def\@pnumwidth{1.55em}
+% \def\@tocrmarg {2.55em}
+% \def\@dotsep{4.5}
+\setcounter{tocdepth}{2}
+
+%%% Captions
+
+\RequirePackage{caption}
+
+\captionsetup{font={small}}
+\captionsetup{textfont={bf},labelfont={bf}}
+
+% \DeclareCaptionFormat{tableRight}{\hfill#1\newline#2#3\par}
+\DeclareCaptionFormat{gost1.5}{\hfill#1\newline#2#3\par}
+
+\captionsetup[figure]{labelsep=period,position=bottom,justification=centering}
+
+% \captionsetup[table]{format=tableRight,labelsep=none,position=top}
+\captionsetup[table]{format=gost1.5,labelsep=none,position=top,justification=centering}
+
+%\AtBeginDocument{%
+% \RequirePackage{floatrow}
+%\makeatletter
+%\@ifpackageloaded{floatrow}{%
+%    \floatsetup[table]{style=Plaintop}
+%    }{}
+%\makeatother
+%}
+
+%%%  Chapter
+
+\KOMAoptions{headings=standardclasses,
+  headings=big,
+chapterprefix=false}
+\renewcommand*\raggedchapter{\centering}
+\renewcommand*\raggedsection{\centering}
+\RedeclareSectionCommand[beforeskip=0pt,afterskip=1\baselineskip]{chapter}
+% \setkomafont{chapterprefix}{\normalsize\mdseries}
+
+%%% Russian
+
+\usepackage{indentfirst}
+
+%%% Lists
+
+\usepackage{enumitem}
+\setlist{nosep}
+\setlist{noitemsep}
+\setlist[enumerate]{labelsep=*, leftmargin=*}
+\setlist[itemize]{leftmargin=*,topsep=0pt}
+\setlist[itemize,1]{label=---~}
+\setlist[itemize,2]{label=---~}
+\setlist[itemize,3]{label=---~}
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End:
