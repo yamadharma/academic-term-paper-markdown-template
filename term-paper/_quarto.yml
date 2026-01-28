@@ -1,0 +1,109 @@
+project:
+  type: book
+
+author:
+  - name: Кулябов Д. С.
+    degrees: DSc
+    orcid: 0000-0002-0877-7063
+    email: kulyabov-ds@rudn.ru
+    affiliation:
+      - name: Российский университет дружбы народов
+        country: Российская Федерация
+        postal-code: 117198
+        city: Москва
+        address: ул. Миклухо-Маклая, д. 6
+
+book:
+  # title: "term-paper"
+  output-file: "term-paper"
+  search: false
+  chapters:
+    - index.qmd
+    # - text/abstract.qmd
+    # - text/intro.qmd
+    - text/chapter01.qmd
+    - text/chapter02.qmd
+    - text/chapter03.qmd
+    - text/conclusion.qmd
+    - text/abbreviations.qmd
+  appendices:
+    - text/appendix01.qmd
+    - text/appendix02.qmd
+    - text/appendix03.qmd
+
+lang: ru
+
+## Bibliography
+bibliography:
+  - bib/cite.bib
+csl: _resources/csl/gost-r-7-0-5-2008-numeric.csl
+
+## Code
+highlight-style: github
+
+## Crossref customization
+crossref:
+  lof-title: "Список иллюстраций"
+  lot-title: "Список таблиц"
+  lol-title: "Листинги"
+
+## Engine
+pdf-engine: lualatex
+pdf-engine-opts:
+  - "--shell-escape"
+  - "--halt-on-error"
+
+filters:
+  - diagram
+  - include-code-files
+  - minted-quarto
+
+minted:
+  include_listings: false
+  level_option: chapter
+  inline_code: false
+  # options:
+  #   cachedir: _minted-cache
+
+format:
+  pdf:
+    keep-tex: false
+    ### Document
+    documentclass: phdthesr
+    # classoption: "font=times"
+    papersize: a4
+    fontsize: 12pt
+    linestretch: 1.5
+    toc: true
+    number-sections: true
+    colorlinks: false
+    toc-depth: 2
+    ### Minted
+    code-tools:
+      highlight: minted
+    ### Language
+    babel-lang: russian
+    babel-otherlangs: english
+    ### Biblatex
+    cite-method: biblatex
+    biblio-style: gost-numeric
+    biblatexoptions:
+      - backend=biber
+      - language=auto
+      - langhook=extras
+      - autolang=other
+    ### Misc options
+    code-overflow: wrap
+    white-space: pre-wrap
+    csquotes: true
+    indent: true
+    # include-in-header:
+    #   - file: _resources/tex/preamble.tex
+    # - file: _resources/tex/class.tex
+    # template-partials:
+    #   - _resources/tex/title.tex
+    include-before-body:
+      - file: _resources/tex/titledef.tex
+      - file: title/title.tex
+      - file: title/abstract.tex
+      - file: _resources/tex/titlepage.tex

@@ -1,0 +1,8 @@
+/.quarto/
+/_book/
+/_minted/
+
+**/*.quarto_ipynb
+
+*.qmd.tex
+

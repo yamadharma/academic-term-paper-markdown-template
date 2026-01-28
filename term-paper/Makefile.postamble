@@ -1,0 +1,23 @@
+# -*- mode: makefile -*-
+NAME = `cat NAME`
+
+rename:	## Rename file to semantic name
+	-[[ -f main.docx ]] && mv main.docx "$(NAME).docx"
+	-[[ -f main.pdf ]] && mv main.pdf "$(NAME).pdf"
+	-[[ -f russian.pdf -a -f english.pdf ]] && pdftk english.pdf russian.pdf cat output '$(NAME).pdf"
+
+cite:	## Generate '.bib' file
+	-[[ -f default.aux ]] && bibexport -r ~/work/bib/bib/main.bib -o cite.default.bib default ; cat cite.default.bib >> cite.bib
+	-[[ -f russian.aux ]] && bibexport -r ~/work/bib/bib/main.bib -o cite.russian.bib russian ; cat cite.russian.bib >> cite.bib
+	-[[ -f english.aux ]] && bibexport -r ~/work/bib/bib/main.bib -o cite.english.bib english ; cat cite.english.bib >> cite.bib
+	-[[ -f cite.bib ]] && bibtex-tidy --no-escape --duplicates key --merge --enclosing-braces cite.bib
+
+help:
+	@echo 'Usage:'
+	@echo '  make <target>'
+	@echo 
+	@echo 'Targets:'
+	@grep -E '^[a-zA-Z_0-9.-]+:.*?##.*$$' $(MAKEFILE_LIST) | grep -v '###' | sort | cut -d: -f2- | awk 'BEGIN {FS = ":.*?##"}; {printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^###.*' $(MAKEFILE_LIST) | cut -d' ' -f2- | awk 'BEGIN {FS = "###"}; {printf "%s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_0-9.-]+:.*?###.*$$' $(MAKEFILE_LIST) | sort | cut -d: -f2- | awk 'BEGIN {FS = ":.*?###"}; {printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@echo

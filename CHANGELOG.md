@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/yamadharma/academic-term-paper-markdown-template/compare/v1.1.1...v2.0.0) (2026-01-28)
+
+
+### Features
+
+* **build:** add listings support ([33b61d3](https://github.com/yamadharma/academic-term-paper-markdown-template/commit/33b61d332a3e13020fe7550d8ce8f59206269e12))
+* **class:** update to new class ([35f917e](https://github.com/yamadharma/academic-term-paper-markdown-template/commit/35f917e2b0676f47173b1023411d64c6727df086))
+
+
+
 ## [1.1.1](https://github.com/yamadharma/academic-term-paper-markdown-template/compare/v1.1.0...v1.1.1) (2022-04-19)
 
 
