@@ -69,8 +69,8 @@ format:
   pdf:
     keep-tex: false
     ### Document
-    documentclass: scrreprt
-    # documentclass: methodka
+    documentclass: phdthesr
+    # classoption: "font=times"
     papersize: a4
     fontsize: 12pt
     linestretch: 1.5
@@ -89,19 +89,21 @@ format:
     biblio-style: gost-numeric
     biblatexoptions:
       - backend=biber
+      - language=auto
       - langhook=extras
-      - autolang=other*
+      - autolang=other
     ### Misc options
     code-overflow: wrap
     white-space: pre-wrap
     csquotes: true
     indent: true
-    include-in-header:
-      - file: _resources/tex/preamble.tex
-      - file: _resources/tex/class.tex
+    # include-in-header:
+    #   - file: _resources/tex/preamble.tex
+    # - file: _resources/tex/class.tex
     # template-partials:
     #   - _resources/tex/title.tex
     include-before-body:
       - file: _resources/tex/titledef.tex
       - file: title/title.tex
+      - file: title/abstract.tex
       - file: _resources/tex/titlepage.tex
